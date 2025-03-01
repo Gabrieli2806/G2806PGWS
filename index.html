@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G2806</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="brand">
+        <img src="icons\Gabrieli2806Logo.png" alt="Brand Logo" class="brand-logo">
+        <span class="brand-name">G2806</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" class="active" data-lang-en="Home" data-lang-es="Inicio">Home</a></li>
+        <li><a href="#games" data-lang-en="Games" data-lang-es="Juegos">Games</a></li>
+        <li><a href="#mods" data-lang-en="Mods" data-lang-es="Mods">Mods</a></li>
+        <li><a href="#servers" data-lang-en="Servers" data-lang-es="Servidores">Servers</a></li>
+        <li><a href="#extensions" data-lang-en="Extensions" data-lang-es="Extensiones">Extensions</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="Toggle Theme"></button>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="wave-background"></div>
+    <div class="hero-content">
+      <h1 data-lang-en="New Types of Games & Tools" data-lang-es="Nuevos Tipos de Juegos y Herramientas">New Types of Games & Tools</h1>
+      <p data-lang-en="Scroll to explore my creations" data-lang-es="Desplázate para explorar mis creaciones">Scroll to explore my creations</p>
+      <a href="#games" class="btn hero-btn" data-lang-en="Discover Now" data-lang-es="Descubre Ahora">Discover Now</a>
+    </div>
+  </section>
+
+  <div class="section-transition tone-1"></div>
+
+  <!-- Games Section -->
+  <section id="games" class="showcase tone-2">
+    <h2 data-lang-en="Games" data-lang-es="Juegos">Games</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="images\BD.png" alt="BlockDash" loading="lazy">
+        <div class="card-content">
+          <h3>BlockDash</h3>
+          <p data-lang-en="Dodge obstacles and master timing in this fast-paced puzzle adventure." data-lang-es="Esquiva obstáculos y domina el tiempo en esta aventura de rompecabezas rápida.">Dodge obstacles and master timing in this fast-paced puzzle adventure.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.G2806.BlockDash&hl=en" class="btn" data-lang-en="Play Now" data-lang-es="Jugar Ahora">Play Now</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images\PT.png" alt="Portal Rift" loading="lazy">
+        <div class="card-content">
+          <h3>Portal Rift (Coming Soon)</h3>
+          <p data-lang-en="Travel through dimensions in a mind-bending portal-based journey." data-lang-es="Viaja a través de dimensiones en un viaje alucinante basado en portales.">Travel through dimensions in a mind-bending portal-based journey.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.G2806.PR&hl=en" class="btn" data-lang-en="Closed Testing" data-lang-es="Pruebas Cerradas">Closed Testing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-transition tone-3"></div>
+
+  <!-- Minecraft Mods Section -->
+  <section id="mods" class="showcase tone-4">
+    <h2 data-lang-en="Minecraft Mods" data-lang-es="Mods de Minecraft">Minecraft Mods</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="icons\TNTimer.png" alt="TNTimer" loading="lazy">
+        <div class="card-content">
+          <h3>TNTimer - On Screen</h3>
+          <p data-lang-en="Track TNT explosions with an on-screen countdown timer for Minecraft." data-lang-es="Sigue las explosiones de TNT con un temporizador en pantalla para Minecraft.">Track TNT explosions with an on-screen countdown timer for Minecraft.</p>
+          <a href="https://modrinth.com/mod/tntimer" class="btn" data-lang-en="Download" data-lang-es="Descargar">Download</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-transition tone-5"></div>
+
+  <!-- Minecraft Servers Section -->
+  <section id="servers" class="showcase tone-6">
+    <h2 data-lang-en="Minecraft Servers" data-lang-es="Servidores de Minecraft">Minecraft Servers</h2>
+    <div class="card-container">
+      <div class="card" id="server-nova-terra">
+        <div class="card-content">
+          <h3>Nova Terra</h3>
+          <p>IP: mc.novaterra.g2806.net</p>
+          <p data-lang-en="Status:" data-lang-es="Estado:"><span class="status-label">Status:</span> <span class="status">Loading...</span></p>
+          <p data-lang-en="Players:" data-lang-es="Jugadores:"><span class="players-label">Players:</span> <span class="player-count">Loading...</span></p>
+        </div>
+      </div>
+      <div class="card" id="server-rompe-discotecas">
+        <div class="card-content">
+          <h3>Rompe Discotecas</h3>
+          <p>IP: mc.novaterra.g2806.net</p>
+          <p data-lang-en="Status:" data-lang-es="Estado:"><span class="status-label">Status:</span> <span class="status">Loading...</span></p>
+          <p data-lang-en="Players:" data-lang-es="Jugadores:"><span class="players-label">Players:</span> <span class="player-count">Loading...</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-transition tone-7"></div>
+
+  <!-- Extensions Section -->
+  <section id="extensions" class="showcase tone-8">
+    <h2 data-lang-en="Chrome Extensions" data-lang-es="Extensiones de Chrome">Chrome Extensions</h2>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-content">
+          <h3>Bing Redirector</h3>
+          <p data-lang-en="Redirect Bing searches to your preferred search engine effortlessly." data-lang-es="Redirige las búsquedas de Bing a tu motor de búsqueda preferido sin esfuerzo.">Redirect Bing searches to your preferred search engine effortlessly.</p>
+          <div class="button-group">
+            <a href="https://microsoftedge.microsoft.com/addons/detail/bing-video-redirector/macnfplnpogffkoaigichpfkomgjbbhk" class="btn" data-lang-en="Edge Store" data-lang-es="Tienda Edge">Edge Store</a>
+            <a href="https://chromewebstore.google.com/detail/bing-video-redirector/belgjolfdlnomcnjmknpdobpoppgpobm" class="btn" data-lang-en="Chrome Store" data-lang-es="Tienda Chrome">Chrome Store</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>Event Horizon Evader (Game)</h3>
+          <p data-lang-en="Survive by evading objects in this thrilling browser game." data-lang-es="Sobrevive esquivando objetos en este emocionante juego de navegador.">Survive by evading objects in this thrilling browser game.</p>
+          <div class="button-group">
+            <a href="https://microsoftedge.microsoft.com/addons/detail/event-horizon-evader/bgagdkhfegnkhooanbehjfmkddgfijfp" class="btn" data-lang-en="Edge Store" data-lang-es="Tienda Edge">Edge Store</a>
+            <a href="https://chromewebstore.google.com/detail/event-horizon-evader/cecnmholnbkbdfjhkjkkdkbnihbifgnl" class="btn" data-lang-en="Chrome Store" data-lang-es="Tienda Chrome">Chrome Store</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>Speed Typer</h3>
+          <p data-lang-en="Test and improve your typing speed with this interactive tool." data-lang-es="Prueba y mejora tu velocidad de escritura con esta herramienta interactiva.">Test and improve your typing speed with this interactive tool.</p>
+          <div class="button-group">
+            <a href="https://microsoftedge.microsoft.com/addons/detail/speed-typer/bphgegebgldjaplbbpeojgienffiebnp" class="btn" data-lang-en="Edge Store" data-lang-es="Tienda Edge">Edge Store</a>
+            <a href="https://chromewebstore.google.com/detail/speed-typer/afdkbdehgnhedmncppbeckfkhldgjbjl" class="btn" data-lang-en="Chrome Store" data-lang-es="Tienda Chrome">Chrome Store</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p data-lang-en="© 2025 G2806" data-lang-es="© 2025 G2806">© 2025 G2806</p>
+  </footer>
+
+  <!-- Chat Button and Mini Chat -->
+  <div class="chat-button" id="chat-button">
+    <span>🤖</span>
+  </div>
+  <div class="mini-chat" id="mini-chat">
+    <div class="chat-header">
+      <h4>Gabot</h4>
+      <button class="chat-close" id="chat-close">✖</button>
+    </div>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button id="chat-send">➤</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
