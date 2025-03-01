@@ -17,13 +17,17 @@ let currentLang = 'en';
 
 function detectSystemLanguage() {
   const userLang = navigator.language || navigator.languages[0];
-  currentLang = userLang.startsWith('es') ? 'es' : 'en';
+  console.log('Detected language:', userLang); // Para depuración
+  currentLang = userLang.toLowerCase().startsWith('es') ? 'es' : 'en';
 }
 
 function updateLanguage() {
   const elements = document.querySelectorAll('[data-lang-en]');
   elements.forEach(el => {
-    el.textContent = el.getAttribute(`data-lang-${currentLang}`);
+    const text = el.getAttribute(`data-lang-${currentLang}`);
+    if (text) {
+      el.textContent = text;
+    }
   });
 }
 
@@ -81,42 +85,6 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
-// Fetch server status from MCSRVSTAT API
-async function updateServerStatus() {
-  const servers = [
-    { id: 'server-nova-terra', ip: 'mc.novaterra.g2806.net' },
-    { id: 'server-rompe-discotecas', ip: 'mc.novaterra.g2806.net' }
-  ];
-
-  for (const server of servers) {
-    try {
-      const response = await fetch(`https://api.mcsrvstat.us/2/${server.ip}`);
-      const data = await response.json();
-      const statusEl = document.querySelector(`#${server.id} .status`);
-      const playerEl = document.querySelector(`#${server.id} .player-count`);
-
-      if (data.online) {
-        statusEl.textContent = currentLang === 'en' ? 'Online' : 'En línea';
-        statusEl.classList.remove('offline');
-        statusEl.classList.add('online');
-        playerEl.textContent = `${data.players.online}/${data.players.max}`;
-      } else {
-        statusEl.textContent = currentLang === 'en' ? 'Offline' : 'Desconectado';
-        statusEl.classList.remove('online');
-        statusEl.classList.add('offline');
-        playerEl.textContent = '0/0';
-      }
-    } catch (error) {
-      console.error(`Error fetching status for ${server.ip}:`, error);
-      const statusEl = document.querySelector(`#${server.id} .status`);
-      const playerEl = document.querySelector(`#${server.id} .player-count`);
-      statusEl.textContent = currentLang === 'en' ? 'Error' : 'Error';
-      statusEl.classList.remove('online', 'offline');
-      playerEl.textContent = 'N/A';
-    }
-  }
-}
-
 // Chat Functionality with Ollama API
 let conversationHistory = [
   { role: 'system', content: 'You are Gabot, a helpful AI assistant created by G2806.' }
@@ -165,7 +133,7 @@ async function sendMessageToOllama(message) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'gemma:latest', // Cambia esto al modelo que tengas instalado en Ollama
+        model: 'gemma:latest',
         messages: conversationHistory,
         stream: false
       })
@@ -211,8 +179,6 @@ chatInput.addEventListener('keypress', (e) => {
   }
 });
 
-// Inicializar idioma y estado al cargar
+// Inicializar idioma al cargar
 detectSystemLanguage();
 updateLanguage();
-updateServerStatus();
-setInterval(updateServerStatus, 30000);
