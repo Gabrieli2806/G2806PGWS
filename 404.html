@@ -1,1 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="icons/G2806Favicon.png" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | G2806</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00BCD4;
+      --bg-light: #F0F4F8;
+      --bg-dark: #121212;
+      --text-light: #2C3E50;
+      --text-dark: #E0E0E0;
+      --card-bg-light: rgba(255, 255, 255, 0.95);
+      --card-bg-dark: rgba(30, 30, 30, 0.95);
+      --bubble-user: #E3F2FD;
+      --bubble-bot: #ECEFF1;
+      --bubble-user-dark: #0288D1;
+      --bubble-bot-dark: #424242;
+    }
 
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 400;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      scroll-behavior: smooth;
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: var(--card-bg-light);
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark nav {
+      background: var(--card-bg-dark);
+      box-shadow: 0 2px 10px rgba(0, 188, 212, 0.2);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      font-family: 'Kanit', sans-serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    body.dark .brand-name {
+      color: var(--text-dark);
+    }
+
+    /* Theme Toggle Button */
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+    }
+
+    #theme-toggle::before {
+      content: "☀️";
+    }
+
+    body.dark #theme-toggle::before {
+      content: "🌙";
+    }
+
+    /* 404 Section */
+    .error-404 {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(255, 255, 255, 0.9));
+    }
+
+    body.dark .error-404 {
+      background: linear-gradient(135deg, rgba(0, 188, 212, 0.2), rgba(18, 18, 18, 0.9));
+    }
+
+    .wave-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--primary), transparent);
+      animation: wave 10s infinite linear;
+      z-index: -1;
+      opacity: 0.5;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(-100%) skewX(-30deg); }
+      100% { transform: translateX(100%) skewX(-30deg); }
+    }
+
+    .error-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      max-width: 1200px;
+      z-index: 1;
+    }
+
+    .error-left {
+      text-align: left;
+      flex: 1;
+      padding-right: 2rem;
+    }
+
+    .error-right {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .error-left h2 {
+      font-family: 'Kanit', sans-serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+      color: var(--text-light);
+    }
+
+    body.dark .error-left h2 {
+      color: var(--text-dark);
+    }
+
+    .error-left p {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin: 0 0 2rem;
+      max-width: 400px;
+    }
+
+    .btn {
+      font-family: 'Kanit', sans-serif;
+      font-weight: 500;
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    }
+
+    .btn:hover {
+      background: #0097A7;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #wrapper {
+      text-align: center;
+    }
+
+    .glitch {
+      position: relative;
+      font-family: 'Kanit', sans-serif;
+      font-weight: 900;
+      font-size: 5rem;
+      color: var(--primary);
+      letter-spacing: 0.2em;
+      white-space: nowrap;
+      animation: glitch-skew 1s infinite linear alternate-reverse;
+    }
+
+    .glitch::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 2px;
+      width: 100%;
+      height: 100%;
+      color: var(--primary);
+      text-shadow: -2px 0 #ff00c1;
+      clip: rect(44px, 9999px, 56px, 0);
+      animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: -2px;
+      width: 100%;
+      height: 100%;
+      color: var(--primary);
+      text-shadow: -2px 0 #ff00c1, 2px 2px #ff00c1;
+      clip: rect(44px, 9999px, 56px, 0);
+      animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim {
+      0% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+      5% { clip: rect(22px, 9999px, 78px, 0); transform: skew(0.8deg); }
+      10% { clip: rect(67px, 9999px, 33px, 0); transform: skew(0.2deg); }
+      15% { clip: rect(12px, 9999px, 89px, 0); transform: skew(0.9deg); }
+      20% { clip: rect(55px, 9999px, 45px, 0); transform: skew(0.4deg); }
+      25% { clip: rect(78px, 9999px, 23px, 0); transform: skew(0.7deg); }
+      30% { clip: rect(34px, 9999px, 67px, 0); transform: skew(0.3deg); }
+      35% { clip: rect(89px, 9999px, 12px, 0); transform: skew(0.6deg); }
+      40% { clip: rect(23px, 9999px, 78px, 0); transform: skew(0.5deg); }
+      45% { clip: rect(56px, 9999px, 44px, 0); transform: skew(0.8deg); }
+      50% { clip: rect(78px, 9999px, 22px, 0); transform: skew(0.2deg); }
+      55% { clip: rect(33px, 9999px, 67px, 0); transform: skew(0.9deg); }
+      60% { clip: rect(45px, 9999px, 55px, 0); transform: skew(0.4deg); }
+      65% { clip: rect(67px, 9999px, 34px, 0); transform: skew(0.7deg); }
+      70% { clip: rect(12px, 9999px, 89px, 0); transform: skew(0.3deg); }
+      75% { clip: rect(89px, 9999px, 23px, 0); transform: skew(0.6deg); }
+      80% { clip: rect(34px, 9999px, 67px, 0); transform: skew(0.5deg); }
+      85% { clip: rect(55px, 9999px, 45px, 0); transform: skew(0.8deg); }
+      90% { clip: rect(78px, 9999px, 22px, 0); transform: skew(0.2deg); }
+      95% { clip: rect(23px, 9999px, 78px, 0); transform: skew(0.9deg); }
+      100% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.4deg); }
+    }
+
+    @keyframes glitch-anim2 {
+      0% { clip: rect(67px, 9999px, 33px, 0); transform: skew(0.8deg); }
+      5% { clip: rect(12px, 9999px, 89px, 0); transform: skew(0.2deg); }
+      10% { clip: rect(55px, 9999px, 45px, 0); transform: skew(0.5deg); }
+      15% { clip: rect(78px, 9999px, 23px, 0); transform: skew(0.9deg); }
+      20% { clip: rect(34px, 9999px, 67px, 0); transform: skew(0.3deg); }
+      25% { clip: rect(89px, 9999px, 12px, 0); transform: skew(0.6deg); }
+      30% { clip: rect(23px, 9999px, 78px, 0); transform: skew(0.4deg); }
+      35% { clip: rect(56px, 9999px, 44px, 0); transform: skew(0.7deg); }
+      40% { clip: rect(78px, 9999px, 22px, 0); transform: skew(0.2deg); }
+      45% { clip: rect(33px, 9999px, 67px, 0); transform: skew(0.8deg); }
+      50% { clip: rect(45px, 9999px, 55px, 0); transform: skew(0.5deg); }
+      55% { clip: rect(67px, 9999px, 34px, 0); transform: skew(0.9deg); }
+      60% { clip: rect(12px, 9999px, 89px, 0); transform: skew(0.3deg); }
+      65% { clip: rect(89px, 9999px, 23px, 0); transform: skew(0.6deg); }
+      70% { clip: rect(34px, 9999px, 67px, 0); transform: skew(0.4deg); }
+      75% { clip: rect(55px, 9999px, 45px, 0); transform: skew(0.7deg); }
+      80% { clip: rect(78px, 9999px, 22px, 0); transform: skew(0.2deg); }
+      85% { clip: rect(23px, 9999px, 78px, 0); transform: skew(0.8deg); }
+      90% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.5deg); }
+      95% { clip: rect(67px, 9999px, 33px, 0); transform: skew(0.9deg); }
+      100% { clip: rect(12px, 9999px, 89px, 0); transform: skew(0.3deg); }
+    }
+
+    @keyframes glitch-skew {
+      0% { transform: skew(-0.5deg); }
+      10% { transform: skew(0.5deg); }
+      20% { transform: skew(-0.3deg); }
+      30% { transform: skew(0.3deg); }
+      40% { transform: skew(-0.7deg); }
+      50% { transform: skew(0.7deg); }
+      60% { transform: skew(-0.2deg); }
+      70% { transform: skew(0.2deg); }
+      80% { transform: skew(-0.4deg); }
+      90% { transform: skew(0.4deg); }
+      100% { transform: skew(-0.5deg); }
+    }
+
+    /* Media Queries para Móviles */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+      }
+
+      .error-content {
+        flex-direction: column;
+        text-align: center;
+        width: 90%;
+      }
+
+      .error-left {
+        padding-right: 0;
+        order: 2; /* Texto abajo */
+      }
+
+      .error-right {
+        justify-content: center;
+        order: 1; /* "Error 404" arriba */
+        margin-bottom: 2rem;
+      }
+
+      .glitch {
+        font-size: 3.5rem; /* Reducido para móviles */
+      }
+
+      .error-left h2 {
+        font-size: 1.8rem;
+      }
+
+      .error-left p {
+        font-size: 1rem;
+      }
+
+      .btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="brand">
+        <img src="icons/Gabrieli2806Logo.png" alt="Brand Logo" class="brand-logo">
+        <span class="brand-name">G2806</span>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle Theme"></button>
+    </nav>
+  </header>
+
+  <!-- 404 Section -->
+  <section class="error-404">
+    <div class="wave-background"></div>
+    <div class="error-content">
+      <div class="error-left">
+        <h2 data-lang-en="Page Not Found" data-lang-es="Página No Encontrada">Page Not Found</h2>
+        <p data-lang-en="Oops! It seems like you’ve wandered off the path. The page you’re looking for doesn’t exist." 
+           data-lang-es="¡Ups! Parece que te has desviado del camino. La página que buscas no existe.">
+          Oops! It seems like you’ve wandered off the path. The page you’re looking for doesn’t exist.
+        </p>
+        <a href="index.html" class="btn" data-lang-en="Back to Home" data-lang-es="Volver al Inicio">Back to Home</a>
+      </div>
+      <div class="error-right">
+        <div id="app">
+          <div id="wrapper">
+            <h1 class="glitch" data-text="Error 404">Error 404</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Theme Toggle
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Language Support based on system preference
+    let currentLang = 'en';
+
+    function detectSystemLanguage() {
+      const userLang = navigator.language || navigator.languages[0];
+      console.log('Detected language:', userLang); // Para depuración
+      currentLang = userLang.toLowerCase().startsWith('es') ? 'es' : 'en';
+    }
+
+    function updateLanguage() {
+      const elements = document.querySelectorAll('[data-lang-en]');
+      elements.forEach(el => {
+        const text = el.getAttribute(`data-lang-${currentLang}`);
+        if (text) {
+          el.textContent = text;
+        }
+      });
+    }
+
+    // Check OS theme on load
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      body.classList.add('dark');
+    }
+
+    // Toggle theme on button click
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark');
+    });
+
+    // Inicializar idioma al cargar
+    detectSystemLanguage();
+    updateLanguage();
+  </script>
+</body>
+</html>
